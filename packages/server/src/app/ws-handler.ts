@@ -22,7 +22,9 @@ intial (option:ServerOptions){
 
 onsocketconection(socket:WebSocketpluse,req:IncomingMessage){
 
-          const queryParams = new URL(req.headers.host + req.url);
+          const fullUrl = `https://${req.headers.host}${req.url}`;
+const queryParams = new URL(fullUrl);
+
           
          const name = queryParams.searchParams.get("name") 
          if (name== null||name.trim() == ""){
